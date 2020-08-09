@@ -962,7 +962,7 @@ if ($conn) {
                                     LEFT JOIN {$dbase}.`%s` `spe` ON `spe`.`evtid` = `se`.`id` AND `spe`.`pluginid` = {$prev_id}
                                     LEFT JOIN {$dbase}.`%s` `spe2` ON `spe2`.`evtid` = `se`.`id`
                                     WHERE name IN ('%s')
-                                    GROUP BY `se`.`id`"
+                                    GROUP BY `se`.`id`, `priority`"
                                     , table_prefix('site_plugin_events')
                                     , table_prefix('system_eventnames')
                                     , table_prefix('site_plugin_events')
@@ -973,7 +973,7 @@ if ($conn) {
                                     SELECT {$id} as `pluginid`, `se`.`id` as `evtid`, COALESCE(MAX(`spe`.`priority`) + 1, 0) as `priority` 
                                     FROM {$dbase}.`%s` `se` 
                                     LEFT JOIN {$dbase}.`%s` `spe` ON `spe`.`evtid` = `se`.`id` 
-                                    WHERE `name` IN ('%s') GROUP BY `se`.`id`"
+                                    WHERE `name` IN ('%s') GROUP BY `se`.`id`, `priority`"
                                     , table_prefix('site_plugin_events')
                                     , table_prefix('system_eventnames')
                                     , table_prefix('site_plugin_events')
