@@ -1,5 +1,7 @@
 <?php namespace EvolutionCMS\Legacy;
 
+use EvolutionCMS\Models\ManagerLog;
+
 /**
  * logger class.
  *
@@ -98,16 +100,16 @@ class LogHandler
         }
 
         $fields['timestamp'] = time();
-        $fields['internalKey'] = $modx->getDatabase()->escape($this->entry['internalKey']);
-        $fields['username'] = $modx->getDatabase()->escape($this->entry['username']);
+        $fields['internalKey'] = $this->entry['internalKey'];
+        $fields['username'] = $this->entry['username'];
         $fields['action'] = $this->entry['action'];
         $fields['itemid'] = $this->entry['itemId'];
-        $fields['itemname'] = $modx->getDatabase()->escape($this->entry['itemName']);
-        $fields['message'] = $modx->getDatabase()->escape($this->entry['msg']);
+        $fields['itemname'] = $this->entry['itemName'];
+        $fields['message'] = $this->entry['msg'];
         $fields['ip'] = $this->getUserIP();
         $fields['useragent'] = $_SERVER['HTTP_USER_AGENT'];
 
-        $insert_id = $modx->getDatabase()->insert($fields, $tbl_manager_log);
+        $insert_id = ManagerLog::query()->create($fields)->getKey();
         if (!$insert_id) {
             $modx->getService('ExceptionHandler')
                 ->messageQuit(
