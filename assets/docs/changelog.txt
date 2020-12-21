@@ -1,6 +1,16 @@
 This file shows the changes in recent releases of Evolution CMS. The most current release is usually the
 development release, and is only shown to give an idea of what's currently in the pipeline.
 
+Evolution CMS 2.0.4 (Dec 21, 2020)
+* [GitHub:#1dfa55cb3] - update TinyMCE (Dmi3yy)
+* [GitHub:#4431a9ffb] - fix error messages (Dmi3yy)
+* [GitHub:#9faf8cf5e] - core (refactor) rewrite log writer to models (aleksandrpaskevic)
+* [GitHub:#5cfb4181d] - fix version modx-evo-database (Dmytro Lukianenko)
+* [GitHub:#61261c7f3] - Update save_template.processor.php (zatomant)
+* [GitHub:#2c152061d] - manager (fix) Add sort to Category model (Ser1ous)
+* [GitHub:#c730a4f67] - fix for //// slash for htaccess (Dmi3yy)
+
+
 Evolution CMS 2.0.3 (Aug 10, 2020)
 * [GitHub:#d640e5802] - Update DocLister (Dmi3yy)
 * [GitHub:#352f86d52] - Update Formlister to 1.12.1 (Dmi3yy)
