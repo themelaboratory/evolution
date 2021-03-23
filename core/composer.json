@@ -55,7 +55,7 @@
     "league/flysystem": "^1.0.8",
     "phpmailer/phpmailer": "6.*",
     "tracy/tracy": "~2.5",
-    "wikimedia/composer-merge-plugin": "dev-master",
+    "wikimedia/composer-merge-plugin": "2.*",
     "symfony/process": "^4.3",
     "i-rocky/eloquent-dynamic-relation": "^1.0"
   },
