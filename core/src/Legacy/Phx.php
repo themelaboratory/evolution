@@ -55,10 +55,15 @@ class Phx
         $this->user["usrid"] = isset($_SESSION['webInternalKey']) ? intval($_SESSION['webInternalKey']) : 0;
         $this->user["id"] = ($this->user["usrid"] > 0) ? (-$this->user["usrid"]) : $this->user["mgrid"];
 
-        $this->debug = (bool)get_by_key($args, 1, false);
-
-        $this->maxPasses = (int)get_by_key($args, 2, 50);
-
+        if(count($args) < 3){
+            // Case if the instance of the EvolutionCMS is not passed to the constructor
+            $this->debug = (bool)get_by_key($args, 0, false);
+            $this->maxPasses = (int)get_by_key($args, 1, 50);
+        }else{
+            $this->debug = (bool)get_by_key($args, 1, false);
+            $this->maxPasses = (int)get_by_key($args, 2, 50);
+        }
+        
         $this->modx->setPlaceholder("phx", "&_PHX_INTERNAL_&");
         if (function_exists('mb_internal_encoding')) {
             mb_internal_encoding($this->modx->config['modx_charset']);
